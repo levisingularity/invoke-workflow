@@ -1,0 +1,33 @@
+name: "Invoke Workflow"
+description: "When a workflow is configured to run on the workflow_dispatch event, you can run the workflow using this action"
+author: Singnet
+inputs:
+  repo:
+    description: "Repository name"
+    required: true
+    type: string
+  workflow:
+    description: "Workflow id"
+    required: true
+    type: string
+  ref:
+    description: "Git reference (branch or tag) to run the workflow on"
+    required: false
+    type: string
+    default: "master"
+  github-token:
+    description: "Github access token"
+    required: true
+    type: string
+branding:
+  icon: "bell"
+  color: "red"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    GITHUB_REPOSITORY: ${{ inputs.repo }}
+    GITHUB_TOKEN: ${{ inputs.github-token }}
+    GITHUB_WORKFLOW_ID: ${{ inputs.workflow }}
+    GIT_REFERENCE: ${{ inputs.ref }}
+    GITHUB_ORG: ${{ }}

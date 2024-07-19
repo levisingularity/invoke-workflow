@@ -1,0 +1,8 @@
+version: "3.9"
+
+services:
+  invoke-workflow:
+    container_name: invoke-workflow
+    build: .
+    env_file:
+      - .env
