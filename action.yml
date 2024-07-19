@@ -23,6 +23,9 @@ inputs:
     description: "Github access token"
     required: true
     type: string
+outputs:
+  conclusion:
+    description: "The conclusion of the workflow run"
 branding:
   icon: "bell"
   color: "red"

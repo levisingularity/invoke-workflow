@@ -81,7 +81,7 @@ class Workflow:
                     print(
                         f"Workflow run with ID {run_id} has completed with conclusion: {conclusion}"
                     )
-                    return run["status"]
+                    return run["conclusion"]
                 else:
                     time.sleep(interval)
             else:

@@ -2,6 +2,12 @@ import os
 import github
 
 
+def write_outputs(outputs: dict):
+    with open(os.getenv("GITHUB_OUTPUT"), "a") as f:
+        for key, value in outputs.items():
+            f.write(f"${key}={value}\n")
+
+
 def main():
     organization = os.getenv("GITHUB_ORG")
     repository = os.getenv("GITHUB_REPO")
@@ -17,10 +23,12 @@ def main():
 
     workflow = github.Workflow(auth)
 
-    workflow.invoke(
+    conclusion = workflow.invoke(
         ref=git_reference,
         workflow_id=workflow_id,
     )
+
+    write_outputs({"conclusion": conclusion})
 
 
 if __name__ == "__main__":
