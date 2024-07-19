@@ -30,7 +30,7 @@ runs:
   using: "docker"
   image: "Dockerfile"
   env:
-    GITHUB_REPOSITORY: ${{ inputs.repo }}
+    GITHUB_REPO: ${{ inputs.repo }}
     GITHUB_TOKEN: ${{ inputs.github-token }}
     GITHUB_WORKFLOW_ID: ${{ inputs.workflow }}
     GIT_REFERENCE: ${{ inputs.ref }}
