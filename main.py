@@ -5,7 +5,7 @@ import github
 def main():
     organization = os.getenv("GITHUB_ORG")
     repository = os.getenv("GITHUB_REPO")
-    token = os.getenv("GITHUB_TOKEN")
+    token = os.getenv("GH_TOKEN")
     workflow_id = os.getenv("GITHUB_WORKFLOW_ID")
     git_reference = os.getenv("GIT_REFERENCE")
 
