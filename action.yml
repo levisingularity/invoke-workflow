@@ -2,6 +2,10 @@ name: "Invoke Workflow"
 description: "When a workflow is configured to run on the workflow_dispatch event, you can run the workflow using this action"
 author: Singnet
 inputs:
+  org:
+    description: "Organization name"
+    required: true
+    type: string
   repo:
     description: "Repository name"
     required: true
@@ -30,4 +34,4 @@ runs:
     GITHUB_TOKEN: ${{ inputs.github-token }}
     GITHUB_WORKFLOW_ID: ${{ inputs.workflow }}
     GIT_REFERENCE: ${{ inputs.ref }}
-    GITHUB_ORG: ${{ }}
+    GITHUB_ORG: ${{ inputs.org }}
